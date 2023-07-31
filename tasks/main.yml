@@ -37,7 +37,7 @@
 
 - name: check PSTools Installer exists
   win_stat:
-    path: {{ directory_install }}\PSTools.zip
+    path: '{{ directory_install }}\PSTools.zip'
   register: installer_pstools
 
 - name: get the PSTools installer
@@ -48,7 +48,7 @@
 
 - name: check extraced PSTools files exists
   win_stat:
-    path: {{ directory_install }}\PSTools
+    path: '{{ directory_install }}\PSTools'
   register: pstools_dir
 
 - name: Unzip PSTools installer

@@ -11,13 +11,9 @@
 
 - name: Install SQL Pre-Reqs
   win_feature:
-    name:
-      - NET-Framework-Core
-      - NET-Framework-Features
-      - NET-Framework-45-Features
-      - NET-Framework-45-Core
-      - NET-Framework-45-ASPNET
+    name: {{ item }}
     state: present
+  with_items: '{{ sql_prereqs }}'
   register: win_feature
 
 - name: Reboot if features require

@@ -118,3 +118,6 @@
   win_chocolatey:
     name: sql-server-management-studio
     state: present
+
+- name: Reboot
+  win_reboot:

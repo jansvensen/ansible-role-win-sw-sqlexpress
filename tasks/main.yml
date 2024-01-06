@@ -11,7 +11,7 @@
 
 - name: Install SQL Pre-Reqs
   win_feature:
-    name: {{ item }}
+    name: '{{ item }}'
     state: present
   with_items: '{{ sql_prereqs }}'
   register: win_feature

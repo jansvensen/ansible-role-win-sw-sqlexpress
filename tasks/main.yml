@@ -14,12 +14,12 @@
     name: '{{ item }}'
     state: present
   with_items: '{{ sql_prereqs }}'
-  register: winfeature
+  register: win_feature
 
 - name: Reboot if features require
   win_reboot:
-  when: winfeature.reboot_required
-
+  when: win_feature.changed
+  
 - name: check SQL setup file exists
   win_stat:
     path: '{{ directory_install }}\SQLEXPRADV_x64_ENU.exe'

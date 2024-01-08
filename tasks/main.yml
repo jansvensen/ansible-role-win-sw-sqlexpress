@@ -14,11 +14,11 @@
     name: '{{ item }}'
     state: present
   with_items: '{{ sql_prereqs }}'
-  register: win_feature
+  register: winfeature
 
 - name: Reboot if features require
   win_reboot:
-  when: win_feature.reboot_required
+  when: winfeature.reboot_required
 
 - name: check SQL setup file exists
   win_stat:
